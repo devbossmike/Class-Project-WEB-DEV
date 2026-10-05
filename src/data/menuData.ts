@@ -1,0 +1,333 @@
+import { MenuItem, DaySpecial } from '../types';
+
+export const HERO_IMAGE = '/src/assets/images/hero_cafeteria_space_1791215028125.jpg';
+export const LUNCH_SPECIAL_IMAGE = '/src/assets/images/food_lunch_special_1791215041528.jpg';
+export const BREAKFAST_SPREAD_IMAGE = '/src/assets/images/food_breakfast_spread_1791215052516.jpg';
+export const GRAB_AND_GO_IMAGE = '/src/assets/images/food_grab_and_go_1791215065965.jpg';
+
+export const INITIAL_MENU_ITEMS: MenuItem[] = [
+  // LUNCH SPECIALS
+  {
+    id: 'lunch-1',
+    name: 'Slow-Simmered Karen Beef Stew & Flaky Layered Chapati',
+    swahiliName: 'Mchuzi wa Nyama na Chapati Safi',
+    description: 'Tender prime grass-fed Mt. Kenya beef chuck braised in rich tomato, garlic, ginger, and coriander gravy. Served with 2 hot buttery layered chapatis and sauteed sukuma wiki greens.',
+    category: 'lunch_specials',
+    priceKes: 520,
+    dietary: ['DF'],
+    availability: 'low_stock',
+    remainingPortions: 6,
+    image: LUNCH_SPECIAL_IMAGE,
+    servingTime: '11:30 AM – 3:00 PM',
+    sourcingNote: 'Grass-fed beef from Nanyuki ranch; organic sukuma wiki harvested daily in Karen.',
+    caloriesApprox: 680,
+    isPopular: true
+  },
+  {
+    id: 'lunch-2',
+    name: 'Coconut Swahili Fish Curry & Fragrant Steamed Basmati',
+    swahiliName: 'Samaki wa Kupaka na Wali',
+    description: 'Fresh Lake Victoria white fish fillet gently poached in a rich coastal spiced coconut sauce, tamarind, turmeric, and fresh cilantro. Served with fragrant steamed basmati rice and kachumbari.',
+    category: 'lunch_specials',
+    priceKes: 620,
+    dietary: ['GF', 'DF'],
+    availability: 'available',
+    remainingPortions: 18,
+    servingTime: '11:30 AM – 3:00 PM',
+    sourcingNote: 'Sustainable Lake Victoria tilapia; fresh coastal coconut cream.',
+    caloriesApprox: 590,
+    isPopular: true
+  },
+  {
+    id: 'lunch-3',
+    name: 'Roast Herb Half-Chicken with Limuru Rosemary Potatoes',
+    swahiliName: 'Kuku Choma wa Kupika na Viazi',
+    description: 'Free-range chicken marinated in fresh rosemary, lemon zest, and cold-pressed olive oil, roasted until crispy skin. Paired with oven-browned baby red potatoes and garlic string beans.',
+    category: 'lunch_specials',
+    priceKes: 580,
+    dietary: ['GF', 'DF'],
+    availability: 'available',
+    remainingPortions: 12,
+    servingTime: '11:30 AM – 3:00 PM',
+    sourcingNote: 'Free-range pasture-raised poultry from neighboring Rongai farm.',
+    caloriesApprox: 640
+  },
+  {
+    id: 'lunch-4',
+    name: 'Rustic Mukimo Bowl with Sauteed Traditional Greens',
+    swahiliName: 'Mukimo Safi na Managu ya Kienyeji',
+    description: 'Hearty traditional mashed potatoes, sweet corn kernels, yellow pumpkin leaves, and green peas, topped with tender braised managu greens and caramelized red onions.',
+    category: 'lunch_specials',
+    priceKes: 380,
+    dietary: ['V', 'VG', 'GF', 'DF'],
+    availability: 'available',
+    remainingPortions: 24,
+    servingTime: '11:30 AM – 3:00 PM',
+    sourcingNote: 'Limuru organic potatoes and heirloom indigenous greens from Naivasha.',
+    caloriesApprox: 480,
+    isPopular: false
+  },
+  {
+    id: 'lunch-5',
+    name: 'Smoked Molo Lamb Stew with Coconut Jasmine Rice',
+    swahiliName: 'Mchuzi wa Kondoo wa Molo',
+    description: 'Slow-cooked Highland lamb shoulder infused with whole cloves, star anise, root vegetables, and simmered until fork tender in a velvety broth.',
+    category: 'lunch_specials',
+    priceKes: 650,
+    dietary: ['GF', 'DF'],
+    availability: 'sold_out',
+    remainingPortions: 0,
+    servingTime: '11:30 AM – 3:00 PM',
+    sourcingNote: 'Pasture-fed Molo lamb; strictly organic highland root crops.',
+    caloriesApprox: 720,
+    isPopular: true
+  },
+  {
+    id: 'lunch-6',
+    name: 'Creamy Roasted Butternut & Ginger Soup with Sourdough',
+    swahiliName: 'Supu ya Malenge na Mkate wa Kuchachuka',
+    description: 'Velvety soup of slow-roasted Karen butternut squash, roasted garlic, and gentle fresh ginger warmth. Served with toasted artisan country sourdough bread.',
+    category: 'lunch_specials',
+    priceKes: 360,
+    dietary: ['V', 'VG', 'DF'],
+    availability: 'available',
+    remainingPortions: 15,
+    servingTime: '11:30 AM – 3:30 PM',
+    sourcingNote: 'Farm-direct Karen squash & in-house wild-ferment sourdough loaf.',
+    caloriesApprox: 340
+  },
+
+  // BREAKFAST ITEMS
+  {
+    id: 'bf-1',
+    name: 'Farmhouse Spanish Omelette & Sourdough Toast',
+    swahiliName: 'Omeleti ya Kienyeji na Mkate',
+    description: '3 free-range farm eggs folded with sweet bell peppers, red onions, fresh coriander, and diced vine tomatoes. Served with whipped butter and 2 toasted sourdough slices.',
+    category: 'breakfast',
+    priceKes: 340,
+    dietary: ['V'],
+    availability: 'available',
+    remainingPortions: 25,
+    image: BREAKFAST_SPREAD_IMAGE,
+    servingTime: '7:00 AM – 11:00 AM',
+    sourcingNote: 'Pastured eggs collected every morning from Karen coop.',
+    caloriesApprox: 420,
+    isPopular: true
+  },
+  {
+    id: 'bf-2',
+    name: 'Smashed Ripe Avocado on Artisan Seeded Rye Toast',
+    swahiliName: 'Mkate wa Parachichi Safi',
+    description: 'Thick toasted artisan seeded rye generously spread with freshly mashed Karen Haas avocado, lime squeeze, chili flakes, toasted pumpkin seeds, and cold-pressed olive oil drizzle.',
+    category: 'breakfast',
+    priceKes: 320,
+    dietary: ['V', 'VG', 'DF'],
+    availability: 'available',
+    remainingPortions: 18,
+    servingTime: '7:00 AM – 11:30 AM',
+    sourcingNote: 'Creamy Hass avocados sourced from Murang’a orchard partners.',
+    caloriesApprox: 380,
+    isPopular: true
+  },
+  {
+    id: 'bf-3',
+    name: 'Full Nairobi Power Breakfast Platter',
+    swahiliName: 'Kiamsha Kinywa Kikamilifu',
+    description: 'Two eggs cooked your way, grilled farmhouse beef sausage, crispy bacon strips, roasted herb button mushrooms, baked beans, and buttered toast.',
+    category: 'breakfast',
+    priceKes: 520,
+    dietary: ['DF'],
+    availability: 'available',
+    remainingPortions: 14,
+    servingTime: '7:00 AM – 11:00 AM',
+    sourcingNote: 'Artisan beef sausages made locally by Karen butcher.',
+    caloriesApprox: 750
+  },
+  {
+    id: 'bf-4',
+    name: 'Spiced Kenyan Masala Chai & Fresh Warm Mandazi (Pair)',
+    swahiliName: 'Chai ya Tangawizi na Mandazi Mawili',
+    description: 'Aromatic Kericho black tea brewed with fresh crushed ginger, cardamom pods, cinnamon, and whole fresh milk, served with two fluffy golden cardamom mandazi.',
+    category: 'breakfast',
+    priceKes: 220,
+    dietary: ['V'],
+    availability: 'available',
+    remainingPortions: 30,
+    servingTime: '7:00 AM – 4:00 PM',
+    sourcingNote: 'Whole leaf single-origin Kericho high altitude black tea.',
+    caloriesApprox: 310,
+    isPopular: true
+  },
+  {
+    id: 'bf-5',
+    name: 'Organic Rolled Oats Porridge with Wild Honey & Banana',
+    swahiliName: 'Uji wa Shayiri na Asali Safi',
+    description: 'Creamy slow-simmered rolled oats cooked with almond milk or whole dairy milk, topped with toasted macadamia nuts, ripe sliced banana, and acacia honey.',
+    category: 'breakfast',
+    priceKes: 280,
+    dietary: ['V', 'VG', 'DF'],
+    availability: 'available',
+    remainingPortions: 20,
+    servingTime: '7:00 AM – 11:00 AM',
+    sourcingNote: 'Kitui wild blossom raw honey and Kiambu organic bananas.',
+    caloriesApprox: 360
+  },
+
+  // GRAB & GO (ALL DAY)
+  {
+    id: 'gng-1',
+    name: 'Roast Herb Chicken & Avocado Gourmet Baguette Wrap',
+    swahiliName: 'Mzinga wa Kuku na Parachichi',
+    description: 'Shredded roasted chicken breast, crisp romaine lettuce, ripe avocado wedges, and sun-dried tomato herb aioli in a freshly baked artisan tortilla wrap. Ready to grab.',
+    category: 'grab_and_go',
+    priceKes: 440,
+    dietary: ['DF'],
+    availability: 'low_stock',
+    remainingPortions: 4,
+    image: GRAB_AND_GO_IMAGE,
+    servingTime: 'All Day (Grab & Go Cabinet)',
+    sourcingNote: 'Baked fresh at 6:30 AM each morning in our Karen kitchen.',
+    caloriesApprox: 510,
+    isPopular: true
+  },
+  {
+    id: 'gng-2',
+    name: 'Karen Harvest Garden Salad with Quinoa & Citrus Dressing',
+    swahiliName: 'Saladi ya Bustani na Mbegu za Quinoa',
+    description: 'Crisp baby spinach, mixed salad greens, roasted beetroot cubes, cucumber, sweet cherry tomatoes, cooked organic quinoa, and toasted pumpkin seeds with tangy passion-citrus vinaigrette.',
+    category: 'grab_and_go',
+    priceKes: 390,
+    dietary: ['V', 'VG', 'GF', 'DF'],
+    availability: 'available',
+    remainingPortions: 11,
+    servingTime: 'All Day (Grab & Go Cabinet)',
+    sourcingNote: 'Hydroponic crisp greens from nearby Karen greenhouses.',
+    caloriesApprox: 320
+  },
+  {
+    id: 'gng-3',
+    name: 'Layered Chia Seed Pudding with Passion Fruit Coulis',
+    swahiliName: 'Pudding ya Mbegu za Chia na Pasheni',
+    description: 'Coconut-milk infused organic black chia seeds layered with freshly squeezed sweet Karen passion fruit pulp and toasted coconut chips in a reusable glass jar.',
+    category: 'grab_and_go',
+    priceKes: 290,
+    dietary: ['V', 'VG', 'GF', 'DF'],
+    availability: 'available',
+    remainingPortions: 16,
+    servingTime: 'All Day (Grab & Go Cabinet)',
+    sourcingNote: '100% plant-based, no refined sugars.',
+    caloriesApprox: 260,
+    isPopular: true
+  },
+  {
+    id: 'gng-4',
+    name: 'Cold-Pressed Green Zing Detox Juice (400ml)',
+    swahiliName: 'Juisi Safi ya Mboga na Matunda',
+    description: 'Raw cold-pressed juice of crisp green apples, cucumber, celery stalk, baby spinach, fresh lime, and a spicy kick of ginger. Bottled cold daily.',
+    category: 'grab_and_go',
+    priceKes: 260,
+    dietary: ['V', 'VG', 'GF', 'DF'],
+    availability: 'available',
+    remainingPortions: 22,
+    servingTime: 'All Day (Chilled Fridge)',
+    sourcingNote: 'No added water, preservatives, or sweeteners.',
+    caloriesApprox: 130
+  },
+  {
+    id: 'gng-5',
+    name: 'Warm Handcrafted Beef Samosas (Pair) with Chili Dip',
+    swahiliName: 'Sambusa Mbili za Nyama',
+    description: 'Two extra-crispy triangular pastries stuffed with finely minced spiced beef, spring onions, cumin, and fresh cilantro. Served with house tamarind-chili sauce.',
+    category: 'grab_and_go',
+    priceKes: 200,
+    dietary: ['DF'],
+    availability: 'sold_out',
+    remainingPortions: 0,
+    servingTime: 'All Day (Hot Cabinet)',
+    sourcingNote: 'Fried fresh every 2 hours in clean sunflower oil.',
+    caloriesApprox: 330,
+    isPopular: true
+  }
+];
+
+export const WEEKLY_SPECIALS: DaySpecial[] = [
+  {
+    day: 'Monday',
+    shortDay: 'Mon',
+    dishName: 'Slow-Simmered Karen Beef Stew & Layered Chapati',
+    swahiliTitle: 'Mchuzi wa Nyama ya Ng\'ombe & Chapati',
+    description: 'Our signature Mt. Kenya grass-fed chuck stew with tender root carrots, sweet baby peas, and 2 golden flaky hand-rolled chapatis.',
+    priceKes: 520,
+    dietary: ['DF'],
+    farmSource: 'Nanyuki Pasture Ranch & Karen Organic Coop',
+    chefQuote: 'The best way to kick off the work week in Karen—simmered since 6:00 AM.',
+    highlightTag: 'Chef Signature'
+  },
+  {
+    day: 'Tuesday',
+    shortDay: 'Tue',
+    dishName: 'Swahili Coconut Fish Curry with Steamed Jasmine Rice',
+    swahiliTitle: 'Samaki wa Nazi na Wali wa Jasmine',
+    description: 'Fresh Lake Victoria tilapia fillet poached in rich spiced coconut cream, crushed garlic, and fresh coriander, served with aromatic rice and spicy kachumbari.',
+    priceKes: 620,
+    dietary: ['GF', 'DF'],
+    farmSource: 'Lake Victoria Fishermen Coop & Coastal Coconut Grove',
+    chefQuote: 'Subtle warmth, rich coastal flavor, light enough to keep you sharp all afternoon.',
+    highlightTag: 'Seafood Special'
+  },
+  {
+    day: 'Wednesday',
+    shortDay: 'Wed',
+    dishName: 'Herb-Roasted Half Chicken with Limuru Rosemary Potatoes',
+    swahiliTitle: 'Kuku Choma na Viazi vya Rosemary',
+    description: 'Crisp rosemary and lemon-marinated pasture chicken, roasted golden brown and paired with crispy Limuru baby potatoes and garlic green beans.',
+    priceKes: 580,
+    dietary: ['GF', 'DF'],
+    farmSource: 'Rongai Valley Free-Range Poultry & Limuru Farmers',
+    chefQuote: 'A mid-week corporate crowd favorite—crisp skin and juicy, herb-infused meat.',
+    highlightTag: 'High Protein'
+  },
+  {
+    day: 'Thursday',
+    shortDay: 'Thu',
+    dishName: 'Highland Molo Lamb Stew with Traditional Mukimo',
+    swahiliTitle: 'Mchuzi wa Kondoo wa Molo na Mukimo',
+    description: 'Tender highland lamb shoulder braised in aromatic herbs, served with traditional savory mukimo (mashed potatoes, sweet corn, greens) and braised managu.',
+    priceKes: 650,
+    dietary: ['GF', 'DF'],
+    farmSource: 'Molo Highland Pastures & Naivasha Organic Greens',
+    chefQuote: 'Soul-warming comfort food. Corporate teams call in advance to book portions.',
+    highlightTag: 'Customer Favorite'
+  },
+  {
+    day: 'Friday',
+    shortDay: 'Fri',
+    dishName: 'Flame-Seared Lake Tilapia with Coconut Ugali & Sukuma',
+    swahiliTitle: 'Samaki wa Kuchoma na Ugali wa Nazi',
+    description: 'Whole or fillet fresh tilapia seared on high flame with lemon-herb butter, paired with white stoneground maize ugali and sauteed sukuma wiki.',
+    priceKes: 600,
+    dietary: ['GF', 'DF'],
+    farmSource: 'Lake Victoria fresh catch & Nakuru Millers whole maize',
+    chefQuote: 'Celebrating Friday Nairobi style with fresh lake fish and steaming hot ugali.',
+    highlightTag: 'Friday Feast'
+  },
+  {
+    day: 'Saturday',
+    shortDay: 'Sat',
+    dishName: 'Weekend Farmhouse Brunch Waffles & Herb Scramble',
+    swahiliTitle: 'Brunch ya Wikendi: Waffles na Mayai ya Kienyeji',
+    description: 'Crispy golden buttermilk waffles, farm egg scramble with chives, cured bacon or roasted mushrooms, and pure Kitui honeycomb drizzle.',
+    priceKes: 480,
+    dietary: ['V'],
+    farmSource: 'Karen Local Dairy & Kitui Wild Blossom Beekeepers',
+    chefQuote: 'For Karen residents, runners, and cycling groups winding down the weekend.',
+    highlightTag: 'Weekend Special'
+  }
+];
+
+export const DIETARY_LEGEND = [
+  { code: 'V', label: 'Vegetarian', description: 'No meat or poultry; may contain dairy/eggs' },
+  { code: 'VG', label: 'Vegan', description: '100% plant-based, no animal products' },
+  { code: 'GF', label: 'Gluten-Free', description: 'Prepared without wheat, barley, or rye ingredients' },
+  { code: 'DF', label: 'Dairy-Free', description: 'Crafted without milk, butter, or cheese' },
+];

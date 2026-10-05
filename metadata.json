@@ -1,0 +1,6 @@
+{
+  "name": "The Daily Scoop | Karen Cafeteria",
+  "description": "Karen's favorite neighborhood cafeteria serving farm-fresh breakfast, daily lunch specials, and grab-and-go meals in Karen, Nairobi. Check live daily menus and real-time dish availability.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
