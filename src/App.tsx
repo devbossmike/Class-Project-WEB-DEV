@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { MenuSection } from './components/MenuSection';
+import { MenuSection, CategoryFilterType } from './components/MenuSection';
 import { ItemModal } from './components/ItemModal';
 import { WeeklyCalendar } from './components/WeeklyCalendar';
 import { LocationAndAmenities } from './components/LocationAndAmenities';
@@ -13,13 +13,22 @@ import { INITIAL_MENU_ITEMS } from './data/menuData';
 import { ChefHat, CheckCircle2, AlertTriangle, ArrowUp } from 'lucide-react';
 
 const STORAGE_KEY = 'daily_scoop_menu_v1';
+const FAVORITES_STORAGE_KEY = 'daily_scoop_favorites_v1';
 
 export default function App() {
   const [menuItems, setMenuItems] = useState<MenuItem[]>(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
       if (saved) {
-        return JSON.parse(saved);
+        const parsed: MenuItem[] = JSON.parse(saved);
+        // Merge fresh nutritional info if missing from cached items
+        return parsed.map((item) => {
+          const fresh = INITIAL_MENU_ITEMS.find((i) => i.id === item.id);
+          return {
+            ...item,
+            nutrition: item.nutrition || fresh?.nutrition,
+          };
+        });
       }
     } catch {
       // Fallback
@@ -27,12 +36,25 @@ export default function App() {
     return INITIAL_MENU_ITEMS;
   });
 
+  const [favorites, setFavorites] = useState<string[]>(() => {
+    try {
+      const saved = localStorage.getItem(FAVORITES_STORAGE_KEY);
+      if (saved) {
+        return JSON.parse(saved);
+      }
+    } catch {
+      // Fallback
+    }
+    return [];
+  });
+
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
+  const [activeCategory, setActiveCategory] = useState<CategoryFilterType>('all');
   const [kitchenModalOpen, setKitchenModalOpen] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
-  // Sync to local storage
+  // Sync menu items to local storage
   useEffect(() => {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(menuItems));
@@ -40,6 +62,15 @@ export default function App() {
       // Ignore
     }
   }, [menuItems]);
+
+  // Sync favorites to local storage
+  useEffect(() => {
+    try {
+      localStorage.setItem(FAVORITES_STORAGE_KEY, JSON.stringify(favorites));
+    } catch {
+      // Ignore
+    }
+  }, [favorites]);
 
   // Track scroll position for subtle scroll-to-top
   useEffect(() => {
@@ -55,6 +86,28 @@ export default function App() {
     setTimeout(() => {
       setToastMessage(null);
     }, 3200);
+  };
+
+  const handleToggleFavorite = (id: string) => {
+    const item = menuItems.find((i) => i.id === id);
+    setFavorites((prev) => {
+      const isAlready = prev.includes(id);
+      if (isAlready) {
+        showToast(`Removed "${item?.name || 'Dish'}" from favorites.`);
+        return prev.filter((favId) => favId !== id);
+      } else {
+        showToast(`Saved "${item?.name || 'Dish'}" to your favorites!`);
+        return [...prev, id];
+      }
+    });
+  };
+
+  const handleViewFavorites = () => {
+    setActiveCategory('favorites');
+    const menuEl = document.getElementById('menu');
+    if (menuEl) {
+      menuEl.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const handleUpdateItemStatus = (id: string, newStatus: AvailabilityStatus, portions?: number) => {
@@ -113,11 +166,13 @@ export default function App() {
   return (
     <div className="min-h-screen bg-[#FAF8F5] text-[#2C332D] flex flex-col font-sans selection:bg-[#C85A32]/20">
       
-      {/* Top Bar Contract */}
+      {/* Top Bar Contract with My Favorites Counter */}
       <Header
         onOpenKitchenMode={() => setKitchenModalOpen(true)}
         kitchenModeActive={kitchenModalOpen}
         soldOutCount={soldOutItemsCount}
+        favoritesCount={favorites.length}
+        onViewFavorites={handleViewFavorites}
       />
 
       {/* Main Content Sections */}
@@ -128,12 +183,16 @@ export default function App() {
           soldOutCount={soldOutItemsCount}
         />
 
-        {/* Live Dynamic Menu Display */}
+        {/* Live Dynamic Menu Display with Favorites Support */}
         <MenuSection
           items={menuItems}
           onSelectItem={(item) => setSelectedItem(item)}
           onQuickToggleStatus={handleQuickCycleStatus}
           isStaffMode={false}
+          favorites={favorites}
+          onToggleFavorite={handleToggleFavorite}
+          activeCategory={activeCategory}
+          onCategoryChange={setActiveCategory}
         />
 
         {/* Weekly Calendar Lunch Special Preview */}
@@ -149,12 +208,14 @@ export default function App() {
       {/* Footer */}
       <Footer onOpenKitchenMode={() => setKitchenModalOpen(true)} />
 
-      {/* Item Detail Modal */}
+      {/* Item Detail Modal with Bookmark Heart Toggle */}
       <ItemModal
         item={selectedItem}
         onClose={() => setSelectedItem(null)}
         onToggleStatus={handleQuickCycleStatus}
         isStaffMode={true}
+        isFavorite={selectedItem ? favorites.includes(selectedItem.id) : false}
+        onToggleFavorite={handleToggleFavorite}
       />
 
       {/* Kitchen Staff Stock Controller Modal */}
@@ -189,3 +250,4 @@ export default function App() {
     </div>
   );
 }
+

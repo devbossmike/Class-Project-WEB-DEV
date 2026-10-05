@@ -4,6 +4,14 @@ export type MenuCategory = 'breakfast' | 'lunch_specials' | 'grab_and_go';
 
 export type AvailabilityStatus = 'available' | 'low_stock' | 'sold_out';
 
+export interface NutritionalInfo {
+  calories: number; // kcal
+  proteinGrams: number; // g
+  fiberGrams: number; // g
+  carbsGrams?: number; // g
+  fatGrams?: number; // g
+}
+
 export interface MenuItem {
   id: string;
   name: string;
@@ -18,6 +26,7 @@ export interface MenuItem {
   servingTime: string;
   sourcingNote?: string;
   caloriesApprox?: number;
+  nutrition?: NutritionalInfo;
   isPopular?: boolean;
 }
 

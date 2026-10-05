@@ -21,6 +21,13 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     servingTime: '11:30 AM – 3:00 PM',
     sourcingNote: 'Grass-fed beef from Nanyuki ranch; organic sukuma wiki harvested daily in Karen.',
     caloriesApprox: 680,
+    nutrition: {
+      calories: 680,
+      proteinGrams: 42,
+      fiberGrams: 7,
+      carbsGrams: 58,
+      fatGrams: 28,
+    },
     isPopular: true
   },
   {
@@ -36,6 +43,13 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     servingTime: '11:30 AM – 3:00 PM',
     sourcingNote: 'Sustainable Lake Victoria tilapia; fresh coastal coconut cream.',
     caloriesApprox: 590,
+    nutrition: {
+      calories: 590,
+      proteinGrams: 36,
+      fiberGrams: 5,
+      carbsGrams: 52,
+      fatGrams: 24,
+    },
     isPopular: true
   },
   {
@@ -50,7 +64,14 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     remainingPortions: 12,
     servingTime: '11:30 AM – 3:00 PM',
     sourcingNote: 'Free-range pasture-raised poultry from neighboring Rongai farm.',
-    caloriesApprox: 640
+    caloriesApprox: 640,
+    nutrition: {
+      calories: 640,
+      proteinGrams: 48,
+      fiberGrams: 6,
+      carbsGrams: 42,
+      fatGrams: 28,
+    },
   },
   {
     id: 'lunch-4',
@@ -65,6 +86,13 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     servingTime: '11:30 AM – 3:00 PM',
     sourcingNote: 'Limuru organic potatoes and heirloom indigenous greens from Naivasha.',
     caloriesApprox: 480,
+    nutrition: {
+      calories: 480,
+      proteinGrams: 16,
+      fiberGrams: 12,
+      carbsGrams: 74,
+      fatGrams: 11,
+    },
     isPopular: false
   },
   {
@@ -80,6 +108,13 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     servingTime: '11:30 AM – 3:00 PM',
     sourcingNote: 'Pasture-fed Molo lamb; strictly organic highland root crops.',
     caloriesApprox: 720,
+    nutrition: {
+      calories: 720,
+      proteinGrams: 44,
+      fiberGrams: 6,
+      carbsGrams: 56,
+      fatGrams: 34,
+    },
     isPopular: true
   },
   {
@@ -94,7 +129,14 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     remainingPortions: 15,
     servingTime: '11:30 AM – 3:30 PM',
     sourcingNote: 'Farm-direct Karen squash & in-house wild-ferment sourdough loaf.',
-    caloriesApprox: 340
+    caloriesApprox: 340,
+    nutrition: {
+      calories: 340,
+      proteinGrams: 9,
+      fiberGrams: 8,
+      carbsGrams: 46,
+      fatGrams: 12,
+    },
   },
 
   // BREAKFAST ITEMS
@@ -112,6 +154,13 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     servingTime: '7:00 AM – 11:00 AM',
     sourcingNote: 'Pastured eggs collected every morning from Karen coop.',
     caloriesApprox: 420,
+    nutrition: {
+      calories: 420,
+      proteinGrams: 24,
+      fiberGrams: 4,
+      carbsGrams: 28,
+      fatGrams: 22,
+    },
     isPopular: true
   },
   {
@@ -127,6 +176,13 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     servingTime: '7:00 AM – 11:30 AM',
     sourcingNote: 'Creamy Hass avocados sourced from Murang’a orchard partners.',
     caloriesApprox: 380,
+    nutrition: {
+      calories: 380,
+      proteinGrams: 12,
+      fiberGrams: 11,
+      carbsGrams: 36,
+      fatGrams: 20,
+    },
     isPopular: true
   },
   {
@@ -141,7 +197,14 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     remainingPortions: 14,
     servingTime: '7:00 AM – 11:00 AM',
     sourcingNote: 'Artisan beef sausages made locally by Karen butcher.',
-    caloriesApprox: 750
+    caloriesApprox: 750,
+    nutrition: {
+      calories: 750,
+      proteinGrams: 41,
+      fiberGrams: 5,
+      carbsGrams: 48,
+      fatGrams: 42,
+    },
   },
   {
     id: 'bf-4',
@@ -156,6 +219,13 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     servingTime: '7:00 AM – 4:00 PM',
     sourcingNote: 'Whole leaf single-origin Kericho high altitude black tea.',
     caloriesApprox: 310,
+    nutrition: {
+      calories: 310,
+      proteinGrams: 8,
+      fiberGrams: 3,
+      carbsGrams: 44,
+      fatGrams: 11,
+    },
     isPopular: true
   },
   {
@@ -170,7 +240,14 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     remainingPortions: 20,
     servingTime: '7:00 AM – 11:00 AM',
     sourcingNote: 'Kitui wild blossom raw honey and Kiambu organic bananas.',
-    caloriesApprox: 360
+    caloriesApprox: 360,
+    nutrition: {
+      calories: 360,
+      proteinGrams: 13,
+      fiberGrams: 9,
+      carbsGrams: 59,
+      fatGrams: 7,
+    },
   },
 
   // GRAB & GO (ALL DAY)
@@ -188,6 +265,13 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     servingTime: 'All Day (Grab & Go Cabinet)',
     sourcingNote: 'Baked fresh at 6:30 AM each morning in our Karen kitchen.',
     caloriesApprox: 510,
+    nutrition: {
+      calories: 510,
+      proteinGrams: 35,
+      fiberGrams: 8,
+      carbsGrams: 42,
+      fatGrams: 21,
+    },
     isPopular: true
   },
   {
@@ -202,7 +286,14 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     remainingPortions: 11,
     servingTime: 'All Day (Grab & Go Cabinet)',
     sourcingNote: 'Hydroponic crisp greens from nearby Karen greenhouses.',
-    caloriesApprox: 320
+    caloriesApprox: 320,
+    nutrition: {
+      calories: 320,
+      proteinGrams: 14,
+      fiberGrams: 10,
+      carbsGrams: 32,
+      fatGrams: 14,
+    },
   },
   {
     id: 'gng-3',
@@ -217,6 +308,13 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     servingTime: 'All Day (Grab & Go Cabinet)',
     sourcingNote: '100% plant-based, no refined sugars.',
     caloriesApprox: 260,
+    nutrition: {
+      calories: 260,
+      proteinGrams: 7,
+      fiberGrams: 11,
+      carbsGrams: 28,
+      fatGrams: 12,
+    },
     isPopular: true
   },
   {
@@ -231,7 +329,14 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     remainingPortions: 22,
     servingTime: 'All Day (Chilled Fridge)',
     sourcingNote: 'No added water, preservatives, or sweeteners.',
-    caloriesApprox: 130
+    caloriesApprox: 130,
+    nutrition: {
+      calories: 130,
+      proteinGrams: 4,
+      fiberGrams: 5,
+      carbsGrams: 26,
+      fatGrams: 1,
+    },
   },
   {
     id: 'gng-5',
@@ -246,6 +351,13 @@ export const INITIAL_MENU_ITEMS: MenuItem[] = [
     servingTime: 'All Day (Hot Cabinet)',
     sourcingNote: 'Fried fresh every 2 hours in clean sunflower oil.',
     caloriesApprox: 330,
+    nutrition: {
+      calories: 330,
+      proteinGrams: 18,
+      fiberGrams: 3,
+      carbsGrams: 29,
+      fatGrams: 16,
+    },
     isPopular: true
   }
 ];
